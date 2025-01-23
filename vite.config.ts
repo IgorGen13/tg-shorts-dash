@@ -12,4 +12,13 @@ export default defineConfig({
 		}),
 		tsconfigPaths(),
 	],
+	build: {
+		sourcemap: process.env.NODE_ENV === 'production', // Включает sourcemap в продакшене
+		target: 'es2015',
+		minify: false,  // Поменяли минификатор на более совместимый
+	},
+	esbuild: {
+		jsxFactory: 'React.createElement',
+		jsxFragment: 'React.Fragment',
+	},
 });
